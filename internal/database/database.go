@@ -3,6 +3,8 @@ package database
 import (
 	"database/sql"
 	"log"
+
+	_ "modernc.org/sqlite"
 )
 
 var DB *sql.DB
@@ -25,8 +27,8 @@ func Connect() {
 func createUsersTable() {
 	query := `
 		CREATE TABLE IF NOT EXISTS users (
-			id INTEGER PRIMARY KEY AUTOINCREMENT
-			email VARCHAR(255) UNIQUE
+			id INTEGER PRIMARY KEY AUTOINCREMENT,
+			email VARCHAR(255) UNIQUE,
 			password TEXT
 		)
 	`
